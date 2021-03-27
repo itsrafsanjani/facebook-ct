@@ -24,7 +24,7 @@ class UserImageController extends Controller
             ->save(storage_path('app/public/user-images/'.$data['image']->hashName()));
 
         $userImage = auth()->user()->images()->create([
-            'path' => $image,
+            'path' => '/storage/' . $image,
             'width' => $data['width'],
             'height' => $data['height'],
             'location' => $data['location'],

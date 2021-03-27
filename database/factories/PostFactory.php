@@ -8,8 +8,8 @@ use Faker\Generator as Faker;
 
 $factory->define(Post::class, function (Faker $faker) {
     return [
-        'user_id' => factory(User::class),
+        'user_id' => User::all()->random()->id,
         'body' => $faker->sentence,
-        'image' => 'image.jpg',
+        'image' => '/storage/post-images/default-image.jpg',
     ];
 });

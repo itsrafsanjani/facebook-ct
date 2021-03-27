@@ -33,6 +33,8 @@ class PostController extends Controller
             'height' => '',
         ]);
 
+        $image = null;
+
         if (isset($data['image'])) {
             $image = $data['image']->store('post-images', 'public');
 
@@ -43,7 +45,7 @@ class PostController extends Controller
 
         $post = request()->user()->posts()->create([
             'body' => $data['body'],
-            'image' => $image ?? null,
+            'image' => $image ? '/storage/' . $image : null,
         ]);
 
         return new PostResource($post);
