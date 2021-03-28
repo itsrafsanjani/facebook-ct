@@ -3,6 +3,8 @@
 namespace Tests\Feature;
 
 use App\Friend;
+use App\Post;
+use App\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
@@ -60,13 +62,13 @@ class RetrievePostsTest extends TestCase
     /** @test */
     public function a_user_can_only_retrieve_their_posts()
     {
-        $this->actingAs($user = factory(\App\User::class)->create(), 'api');
-        $posts = factory(\App\Post::class)->create();
+        $this->actingAs($user = factory(User::class)->create(), 'api');
+        $posts = factory(Post::class)->create();
 
         $response = $this->get('/api/posts');
 
         $response->assertStatus(200)
-            ->assertExactJson([
+            ->assertJson([
                 'data' => [],
                 'links' => [
                     'self' => url('/posts'),
