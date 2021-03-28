@@ -1,6 +1,7 @@
 ## Installation Instructions
 
 - Clone the repo.
+
 ```sh
     cd facebook-ct
     
@@ -18,9 +19,17 @@
     
     create database facebook_ct;
 ```    
+
 - update `.env` file
+
 ```shell
     php artisan migrate --seed
     
     npm install && npm run dev / npm run watch
+```
+
+- For tests run this command
+
+```shell
+    ./vendor/bin/phpunit
 ```
