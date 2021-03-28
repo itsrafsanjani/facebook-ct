@@ -2,16 +2,12 @@
 
 - Clone the repo.
 
-```sh
+```shell
     cd facebook-ct
     
     composer install
     
-    php -r "file_exists('.env') || copy('.env.example', '.env');"
-    
-    or
-    
-    cp .env.example .env
+    cp .env.example .env / php -r "file_exists('.env') || copy('.env.example', '.env');"
     
     php artisan key:generate --ansi
     
